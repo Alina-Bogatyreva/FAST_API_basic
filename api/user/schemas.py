@@ -16,7 +16,7 @@ class UserBase(BaseModel):
     username: str
     age: int
     address: str
-    dimensions: Catalog = None
+    access_catalog: Catalog = None
 
 
 class UserIn(UserBase):
