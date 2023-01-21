@@ -5,6 +5,7 @@ Update
 Delete
 """
 
+
 from api.user.schemas import UserIn, UserOut, UserInPut
 from api.user.helper import Helper
 
@@ -12,7 +13,7 @@ from api.user.helper import Helper
 helper = Helper()
 
 
-def create_user(user_in: ProductIn) -> UserOut:
+def create_user(user_in: UserIn) -> UserOut:
     user = UserOut(**user_in.dict(), id=helper.next_id)
     helper.usres_db[user.id] = user
     return user

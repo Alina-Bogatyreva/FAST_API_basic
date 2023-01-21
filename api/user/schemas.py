@@ -1,5 +1,4 @@
-from pydantic import BaseModel
-from typing import List
+from pydantic import BaseModel, validator
 
 
 class Catalog(BaseModel):
@@ -24,7 +23,7 @@ class UserIn(UserBase):
     pass
 
 
-class UserInPut(ProductBase):
+class UserInPut(UserBase):
     username: str = None
     age: int = None
 
