@@ -1,19 +1,32 @@
-from pydantic import BaseModel, validator
+from uuid import uuid4
+from typing import List
+from enum import Enum
+
+from pydantic import BaseModel, Field, validator
+
+
+class CatalogEnum(str, Enum):
+    food = "food"
+    phones = "phones"
+    furniture = "furniture"
+    vehicle = "vehicle"
+    international_food = "international_food"
 
 
 class Catalog(BaseModel):
     name: str
-    category: str
+    catalog: CatalogEnum
 
-    @validator("category")
-    def check_city(cls, value):
-        if value not in ["food", "phones", "furniture", "vehicle"]:
-            raise ValueError(f"{value} is not found")
-        return value
+    # @validator("catalog")
+    # def check_catalog(cls, value):
+    #     if value not in ["Food", "Furniture", "Vehicle"]:
+    #         raise ValueError(f"{value} is not catalog")
+    #
+    #     return value
 
 
 class UserBase(BaseModel):
-    username: str
+    user_name: str
     age: int
     address: str
     accesed_catalog: Catalog = None
@@ -24,10 +37,14 @@ class UserIn(UserBase):
 
 
 class UserInPut(UserBase):
-    username: str = None
+    user_name: str = None
     age: int = None
+
+
+def generate_token():
+    return str(uuid4())
 
 
 class UserOut(UserBase):
     id: int
-
+    token: str = Field(default_factory=generate_token)

@@ -2,7 +2,6 @@ from typing import List
 from pydantic import BaseModel
 
 
-
 class Dimension(BaseModel):
     length: float
     width: float

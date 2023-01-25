@@ -4,8 +4,11 @@ Read
 Update
 Delete
 """
+from typing import List
+
 from api.product.schemas import ProductIn, ProductOut, ProductInPut
 from api.product.helper import Helper
+
 
 
 helper = Helper()
@@ -23,7 +26,7 @@ def get_product_by_id(product_id: int) -> ProductOut:
     return product
 
 
-def get_products() -> list[ProductOut]:
+def get_products() -> List[ProductOut]:
     products = list(helper.db.values())
     return products
 
