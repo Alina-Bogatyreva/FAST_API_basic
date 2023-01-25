@@ -1,5 +1,4 @@
 from uuid import uuid4
-from typing import List
 from enum import Enum
 
 from pydantic import BaseModel, Field, validator
@@ -29,7 +28,7 @@ class UserBase(BaseModel):
     user_name: str
     age: int
     address: str
-    accesed_catalog: Catalog = None
+    accessed_catalog: Catalog = None
 
 
 class UserIn(UserBase):
@@ -39,6 +38,7 @@ class UserIn(UserBase):
 class UserInPut(UserBase):
     user_name: str = None
     age: int = None
+    address: str = None
 
 
 def generate_token():

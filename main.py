@@ -6,7 +6,7 @@ import uvicorn
 
 from models import UserRequest, UserResponse, Family  # custom modules, our self python files
 from api.product.views import router_product
-from api.user.views import router_user
+from api.users.views import router_user
 
 
 app = FastAPI()

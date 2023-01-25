@@ -1,5 +1,5 @@
-from typing import List
 from pydantic import BaseModel
+from typing import List
 
 
 class Dimension(BaseModel):
@@ -26,5 +26,7 @@ class ProductInPut(ProductBase):
 
 class ProductOut(ProductBase):
     id: int
+
+
 
 

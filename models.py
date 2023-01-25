@@ -25,7 +25,7 @@ class Family(BaseModel):
 
 
 class UserRequest(BaseModel):
-    first_name: str = Field(..., description="first name of user")
+    first_name: str = Field(..., description="first name of users")
     last_name: str
     age: int
     address: str
