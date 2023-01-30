@@ -20,15 +20,15 @@ def get_product_by_id(product_id: int, token: str) -> ProductOut:
 
 
 @router_product.get("s", response_model=List[ProductOut])
-def get_products() -> List[ProductOut]:
+def get_products(token: str) -> List[ProductOut]:
     return crud.get_products()
 
 
 @router_product.delete("/{product_id}")
-def delete_product(product_id: int) -> None:
-    return crud.delete_product(product_id)
+def delete_product(product_id: int, token: str) -> None:
+    return crud.delete_product(product_id, token)
 
 
 @router_product.put("/{product_id}")
-def put_product(product_id: int, product_in: ProductInPut) -> ProductOut:
-    return crud.put_product(product_id, product_in)
+def put_product(product_id: int, product_in: ProductInPut, token: str) -> ProductOut:
+    return crud.put_product(product_id, product_in, token)

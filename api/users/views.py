@@ -26,11 +26,9 @@ def get_users(token: str) -> List[UserOut]:
 
 @router_user.delete("/{user_id}")
 def delete_user(user_id: int, token: str) -> None:
-    crud.check_token(token)
-    return crud.delete_user(user_id)
+    return crud.delete_user(user_id, token)
 
 
 @router_user.put("/{user_id}")
 def put_user(user_id: int, user_in: UserInPut, token: str) -> UserOut:
-    crud.check_token(token)
-    return crud.put_user(user_id, user_in)
+    return crud.put_user(user_id, user_in, token)

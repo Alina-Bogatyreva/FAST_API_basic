@@ -16,13 +16,6 @@ class Catalog(BaseModel):
     name: str
     catalog: CatalogEnum
 
-    # @validator("catalog")
-    # def check_catalog(cls, value):
-    #     if value not in ["Food", "Furniture", "Vehicle"]:
-    #         raise ValueError(f"{value} is not catalog")
-    #
-    #     return value
-
 
 class UserBase(BaseModel):
     user_name: str
