@@ -11,7 +11,7 @@ class Dimension(BaseModel):
 class ProductBase(BaseModel):
     name: str
     price: int
-    tags: List[str] = None
+    # tags: List[str] = None
     dimensions: Dimension = None
 
 
@@ -26,7 +26,3 @@ class ProductInPut(ProductBase):
 
 class ProductOut(ProductBase):
     id: int
-
-
-
-
