@@ -62,7 +62,7 @@ employee_table = Table(
     metadata,
     Column("id", Integer, primary_key=True, unique=True, autoincrement=True),
     Column("name", String),
-    Column("role", JSON)
+    Column("role", String)
 )
 
 metadata.create_all(bind=engine)
