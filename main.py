@@ -10,4 +10,8 @@ app.include_router(router_product)
 app.include_router(router_user)
 app.include_router(router_employee)
 
+@app.get("/")
+def root():
+    return {"message": "Hello FAST_API"}
+
 uvicorn.run(app)

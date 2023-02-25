@@ -17,10 +17,5 @@ class EmployeeIn(EmployeeBase):
     pass
 
 
-# class EmployeeInPut(EmployeeBase):
-#     name: str = None
-#     role: str = None
-
-
 class EmployeeOut(EmployeeBase):
     id: int

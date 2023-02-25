@@ -47,14 +47,14 @@ for install uvicorn pip install uvicorn
 
 #### venv - virtual environment
 - base python3.8(or python3.9) without libraries
-- pip install flask/ pydantic/ uvicorn etc... all requirements
+- pip install flask/ pydantic/ uvicorn etc... all requrements
 
 #### gitignore
 - specifying files and folders that cannot be added to github
     - venv
     - sqlite3
 
-#### requirements.txt
+#### requrements.txt
 - specifying requirement libraries
 - for collect requirements ```pip freeze > requirements.txt```
     - fastapi
@@ -62,3 +62,29 @@ for install uvicorn pip install uvicorn
     - uvicorn
     - pydantic
     
+# Docker version 19.03.1
+- deploy - развернуть приложение
+- собрать зависимости и запустить приложение - Docker
+- depends: OS, python, libraries, external(db, other service etc.)
+
+- command for docker:
+  - ```docker images``` - посмотреть список уставновленных docker-образов
+  - ```docker run python:3.9-alpine``` - run docker-image (if first time, download it)
+  - ```docker run python:3.9-alpine -h 0.0.0.0 -p 8000:8000``` run docker-image with arguments: h=0.0.0.0, p=8000:8000
+  - ```docker ps -a```  - see all docker-containers
+  - ```docker stop 14c5d9385025``` and ```docker rm 14c5d9385025``` stop and remove docker-container
+  - ```docker rmi b908778bd1b0``` - remove docker-image by id
+  - ```docker build . -t python-6-fastapi-basic``` - create image by Dockerfile
+  - ```docker run -p 80:80 python-6-fastapi-basic``` - run my application FAST API
+  - ```docker run -p 80:80 -it python-6-fastapi-basic``` - run container, enter terminal in container
+  - ```docker run -p 80:80 -d python-6-fastapi-basic``` - run container in daemon
+  - ```docker exec -it 14c5d9385025 /bin/bash``` - enter ti container in terminal
+  - ```docker logs -f 14c5d9385025``` - see logs in container
+  
+
+- command for dockerfile:
+  - pip install -r requirements.txt
+  - COPY
+  - CMD
+  - FROM
+
